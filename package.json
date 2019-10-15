@@ -1,0 +1,11 @@
+{
+  "name": "scrabble-sentence-maker",
+  "version": "0.0.1",
+  "description": "Will take a sentence you provide and place as valid scrabble pieces, or will return false if it is unable to do so.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
