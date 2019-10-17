@@ -12,21 +12,20 @@ const getWords = (sentence) => {
 };
 
 const searchBackHorizontal = (newChar) => {
+    let y = lastY;
     for (let x = lastX; x > 0; x--) {
         if (board[y][x] === newChar) {
             return x;
-        } else {
-            console.log('This is not a possible scrabble sentence');
         }
     }
 };
 
 const searchBackVertical = (newChar) => {
+    let x = lastX;
     for (let y = lastY; y > 0; y--) {
+        console.log(board[y][x], newChar);
         if (board[y][x] === newChar) {
             return y;
-        } else {
-            console.log('This is not a possible scrabble sentence');
         }
     }
 };
@@ -45,6 +44,16 @@ const placeWords = (words) => {
                     let position = searchBackHorizontal(char);
                     console.log(position, words[key], lastY);
                     placeWord(words[key], position, lastY);
+                    console.log(board);
+                    vertical = false;
+                    break;
+                }
+            } else {
+                for(char of words[key]) {
+                    let position = searchBackVertical(char);
+                    console.log(lastX, words[key], position);
+                    placeWord(words[key], lastX, position);
+                    vertical = true;
                     break;
                 }
             }
@@ -67,6 +76,6 @@ const placeWord = (word, x, y) => {
 
 board = createScrabbleBoard(15);
 
-placeWords(getWords('This sucks'));
+placeWords(getWords('This isnt'));
 
 console.log(board);
