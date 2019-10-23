@@ -7,6 +7,5 @@ const createMatrix = (dim, value) => {
 };
 
 module.exports = {
-    range,
     createMatrix
 }
